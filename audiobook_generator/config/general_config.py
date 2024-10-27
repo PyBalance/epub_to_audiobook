@@ -38,5 +38,8 @@ class GeneralConfig:
         self.piper_sentence_silence = args.piper_sentence_silence
         self.piper_length_scale = args.piper_length_scale
 
+        # TTS provider: ChatTTS specific arguments
+        self.chattts_url = getattr(args, 'chattts_url', "http://127.0.0.1:9966")
+
     def __str__(self):
         return ', '.join(f"{key}={value}" for key, value in self.__dict__.items())

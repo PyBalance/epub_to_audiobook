@@ -102,7 +102,7 @@ def handle_args():
     edge_tts_group.add_argument(
         "--voice_rate",
         help="""
-            Speaking rate of the text. Valid relative values range from -50%%(--xxx='-50%%') to +100%%. 
+            Speaking rate of the text. Valid relative values range from -50%%(--xxx='-50%%') to +100%%.
             For negative value use format --arg=value,
         """,
     )
@@ -155,6 +155,13 @@ def handle_args():
         "--piper_length_scale",
         default=1.0,
         help="Phoneme length, a.k.a. speaking rate",
+    )
+
+    chattts_group = parser.add_argument_group(title="chattts specific")
+    chattts_group.add_argument(
+        "--chattts_url",
+        default="http://127.0.0.1:9966",
+        help="URL for the ChatTTS-ui server (default: http://127.0.0.1:9966)",
     )
 
     args = parser.parse_args()

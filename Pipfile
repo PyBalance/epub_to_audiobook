@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+beautifulsoup4 = "*"
+ebooklib = "*"
+mutagen = "*"
+openai = "*"
+requests = "*"
+socksio = "*"
+edge-tts = "*"
+pydub = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
