@@ -7,7 +7,7 @@ TTS_OPENAI = "openai"
 TTS_EDGE = "edge"
 TTS_PIPER = 'piper'
 TTS_CHATTTS = "chattts"
-
+TTS_COSYVOICE = "cosyvoice"
 
 class BaseTTSProvider:  # Base interface for TTS providers
     # Base provider interface
@@ -36,7 +36,7 @@ class BaseTTSProvider:  # Base interface for TTS providers
 
 # Common support methods for all TTS providers
 def get_supported_tts_providers() -> List[str]:
-    return [TTS_AZURE, TTS_OPENAI, TTS_EDGE, TTS_PIPER, TTS_CHATTTS]
+    return [TTS_AZURE, TTS_OPENAI, TTS_EDGE, TTS_PIPER, TTS_CHATTTS, TTS_COSYVOICE]
 
 
 def get_tts_provider(config) -> BaseTTSProvider:
@@ -55,5 +55,8 @@ def get_tts_provider(config) -> BaseTTSProvider:
     elif config.tts == TTS_CHATTTS:
         from audiobook_generator.tts_providers.chat_tts_provider import ChatTTSProvider
         return ChatTTSProvider(config)
+    elif config.tts == TTS_COSYVOICE:
+        from audiobook_generator.tts_providers.cosy_voice_provider import CosyVoiceProvider
+        return CosyVoiceProvider(config)
     else:
         raise ValueError(f"Invalid TTS provider: {config.tts}")

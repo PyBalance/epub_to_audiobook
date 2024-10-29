@@ -41,5 +41,8 @@ class GeneralConfig:
         # TTS provider: ChatTTS specific arguments
         self.chattts_url = getattr(args, 'chattts_url', "http://127.0.0.1:9966")
 
+        # TTS provider: CosyVoice specific arguments
+        self.cosyvoice_url = getattr(args, 'cosyvoice_url', "http://localhost:9880")
+        self.cosyvoice_speaker = getattr(args, 'cosyvoice_speaker', "jok老师")
     def __str__(self):
         return ', '.join(f"{key}={value}" for key, value in self.__dict__.items())

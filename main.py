@@ -164,6 +164,17 @@ def handle_args():
         help="URL for the ChatTTS-ui server (default: http://127.0.0.1:9966)",
     )
 
+    cosyvoice_group = parser.add_argument_group(title="cosyvoice specific")
+    cosyvoice_group.add_argument(
+        "--cosyvoice_url",
+        default="http://localhost:9880",
+        help="URL for the CosyVoice server (default: http://localhost:9880)",
+    )
+    cosyvoice_group.add_argument(
+        "--cosyvoice_speaker",
+        default="jok老师",
+        help="Speaker name for CosyVoice (default: jok老师)",
+    )
     args = parser.parse_args()
     return GeneralConfig(args)
 
